@@ -1,5 +1,24 @@
 {
   "UsersData": [
-   
+    {
+      "fname": "Shivam",
+      "lname": "Kumar",
+      "email": "shivamstm01@gmail.com",
+      "number": 6201763368,
+      "state": "Maharashtara",
+      "city": "Pune",
+      "interest": [
+        "Cricket"
+      ],
+      "address": null,
+      "checkbox": true,
+      "age": 20,
+      "addressType": "Company",
+      "address1": "",
+      "address2": "",
+      "companyAddress1": "kolkata",
+      "companyAddress2": "patna",
+      "id": 1
+    }
   ]
 }
