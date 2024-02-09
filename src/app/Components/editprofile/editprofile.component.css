@@ -1,0 +1,309 @@
+.Head{
+    height: 770px;
+    width: 700px;
+    text-align:center;
+    background-color: white;
+    margin-left: 27.5%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+   
+
+    .navbar {
+        background-color: deepskyblue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        height: 30px; 
+      }
+      
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;  
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        color: white;
+        font-weight: bold;
+      }
+      
+        
+}
+      
+
+
+.showform{
+    display: flex;
+
+    margin-top:30px;
+    
+    justify-content:flex-start;
+    align-items: center;
+        padding: 10px 20px;
+}
+
+    
+
+.showDataform{
+   
+    margin-left: 80px;
+    height: 20px;
+    .fname{
+        height: 38px;
+        width: 250px;
+
+    }
+    .lname{
+        height: 38px;
+        width: 250px;
+        margin-left: 10px;
+
+    }
+    .email{
+        height: 38px;
+        width: 517px;
+        margin-top: 20px;
+    }
+    .interest{
+        height: 38px;
+        width: 517px;
+        margin-top: 20px;
+    }
+    .number{
+        height: 38px;
+        width: 517px;
+        margin-top: 20px;
+    }
+
+    .state{
+        height: 45px;
+        width: 525px;
+        margin-top: 20px;
+
+    }
+
+    .age{
+        margin-top: 20px;
+        height: 45px;
+        width: 525px;
+        /* border: 1px solid gray; */
+    }
+
+    #ageslider{
+        width: 400px;
+        height: 10px;
+        margin: 18px;
+    }
+    #agelabel{
+        color: #ccc;
+    }
+
+    .checkbox{
+        margin-top: 30px;
+    }
+
+    .address{
+        display: flex;
+        height: 40px;
+        width: 530px;
+        margin-top: 20px;
+
+
+        #address1{
+            height: 35px; 
+        width: 216px;
+        margin-left: 0.2px;
+        }
+        
+    
+    }
+
+    .submit{
+        height: 38px;
+        width: 100px;
+        margin-top: 20px;
+        background-color: deepskyblue;
+        color: white;
+        border: 0px none;
+        border-radius: 5px;
+    }
+    .cancle{
+        height: 38px;
+        width: 100px;
+        margin: 20px;
+        background-color: white;
+        color: black;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    .tagside{
+        margin-right: 330px;
+    }
+
+    .tagsOption{
+        color: white;
+        background-color: black;
+        margin: 5px;
+    }
+    #removetag{
+        color: orange;
+        font-weight: bold;
+    }
+    
+}
+
+
+
+.footer{
+    background-color: black;
+    text-align: center;
+    background-size: cover;
+    border-bottom: 4px solid deepskyblue;
+    border-top: 2px solid deepskyblue;
+    margin-top: -20px;
+    height: 210px;
+    color: white;
+
+
+    .footerup{
+
+        padding: 60px;
+
+        input {
+            border-radius: 2px;
+            border: 2px solid deepskyblue;
+            height: 25px;
+            padding: 5px;
+            width: 420px;
+            background-color: black;
+            color: white;
+           
+            
+          }
+          i {
+            width: 2px;
+            position: relative;
+            right: 30px;
+            font-size: 20px;
+            line-height: 40px; 
+           
+          }
+
+    }
+}
+
+/*Image Proparty-Image Proparty--Image Proparty---Image Proparty------Image Proparty------Image Proparty---------------------------------------------------------------------------------------- */
+
+.Head2{
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    margin-left: 35%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+   
+
+    .navbar2 {
+        background-color: deepskyblue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        height: 30px; 
+      }
+      
+      .logo2 a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;  
+      }
+      
+      .nav-links2 {
+        list-style: none;
+        display: flex;
+        color: white;
+        font-weight: bold;
+      }
+
+
+      .EditImageHead{
+        margin-left: 150px;
+
+        image{
+            height: 210px;
+            width: 220px;
+            background-color: grey;
+                }
+        
+        }
+    
+
+      .ShowImage{
+        height: 210px;
+        width: 220px;
+        background-color: grey;
+        border-color: 3px solid ;
+        margin-top: 20px;
+            margin-left: 30%;
+        img{
+           
+            margin-top: 1px;
+            height: 210px;
+            margin-left: 10;
+            width: 220px;;
+        }}
+        
+      .inputImage{
+        margin-top: 20px;
+        margin-left: 35%;
+
+        .ImageInput{
+        
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            border: 0px none;
+            margin-left: 20px;
+          
+            }
+        .ImageInput::file-selector-button {
+        padding: 2px 8px;
+        margin-left: 20px;
+        font-size: 18px;                /* added */
+        display: block;                 /* added */
+        
+        }
+        
+        .ImageInput::before{
+                    content: "Upload your photo";
+                    font-weight: bold;
+                    background: #fff;
+                    border: none;
+                    color: blue;
+                    text-align: left;
+                    box-sizing: border-box;
+                    width: 190px;
+                    position: absolute;
+                    height: 30px;
+                
+            }
+      }
+
+      .UpdateButton{
+        height: 40px;
+        width: 90px;
+        background-color: deepskyblue;
+        color: white;
+        border: none;
+        margin-top: 30px;
+        margin-left: 220px;
+      }
+      
+        
+}
+      

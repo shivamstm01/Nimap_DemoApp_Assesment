@@ -1,0 +1,138 @@
+<div class="Head">
+
+    <nav class="navbar">
+        <div class="logo">
+          <a routerLink="/">Register</a>
+        </div>
+        <ul class="nav-links">
+          <li (click)="removeButton()">X</li>
+         
+        </ul>
+      </nav>
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+<form  [formGroup]="RegistrationForm" (ngSubmit)="Submit()" >
+    
+    <div class="showform">
+    <div class="showformImage"> 
+        <img *ngIf="selectedImage" [src]="selectedImage" alt="selected Image">
+        <div class="pogo1">
+        
+            <input type="file" class="ImageInput" placeholder="Upload Image"  formControlName="image" (change)="onFileSelected($event)">
+            <span style="color: red;" *ngIf="image && image.invalid && image.touched">Image dimensions must be 310x320 pixels.</span>
+        </div>
+</div>
+
+    
+
+    <div class="showDataform"> 
+        
+        <input type="text" class="fname" placeholder="First Name" formControlName="fname">
+        <input type="text" class="lname" placeholder="Last Name" formControlName="lname">
+
+        <div >
+            <input type="email" class="email" placeholder="Email" formControlName="email">
+          </div>
+
+
+          <div >
+            <input type="number" class="number" placeholder="916201763368" formControlName="number">
+        </div>
+
+
+        <div class="age">
+            <label id="agelabel">Age</label>
+            <input type="range" placeholder="Age" id="ageslider" formControlName="age" min="20" max="60">
+            <span>{{age.value}}</span>
+        </div>
+
+
+        <div >
+            <select formControlName="state" class="state" >
+                <option hidden value="" disabled selected>State </option>
+                <option *ngFor="let item of StateList" [value]="item.name">{{item.name}}</option>
+              </select>
+        </div>
+
+
+        <div>
+            <select formControlName="city" class="state" >
+                <option hidden value="" disabled selected>City </option>
+                <option *ngFor="let item of CityList" [value]="item.name">{{item.name}}</option>
+              </select>
+        </div>
+
+
+
+       <!-- Address -->
+       <div class="address">
+        <select formControlName="addressType" >
+          <option value="Home">Home</option>
+          <option value="Company">Company</option>
+        </select>
+      
+        <div *ngIf="RegistrationForm.get('addressType').value === 'Home'">
+          <input type="text" formControlName="address1" placeholder="Address 1" id="address1">
+          <input type="text" formControlName="address2" placeholder="Address 2" id="address1">
+        </div>
+      
+        <div *ngIf="RegistrationForm.get('addressType').value === 'Company'">
+          <input type="text" formControlName="companyAddress1" placeholder="Company Address 1" id="address1">
+          <input type="text" formControlName="companyAddress2" placeholder="Company Address 2" id="address1">
+        </div>
+       </div>
+
+
+
+
+          <div >
+            <input type="text" class="interest" placeholder="Enter Interest" formControlName="interest">
+            <div> <button type="button" (click)="removeInterest(index)" *ngFor="let interest of interests; let index = index" class="tagsOption">{{ interest }} <span id="removetag"> X </span></button></div>
+        </div>
+
+        <div class="tagside" >
+            <input type="checkbox" class="checkbox"  formControlName="checkbox"><span>Subscribe to newsletter</span>
+        </div>
+
+
+
+        <div  class="buttonall">
+          <button class="cancle" type="button" routerLink="/home">Cancle</button> <button  class="submit" type="submit" >Submit</button> </div>
+    
+    </div>
+
+</div>
+
+</form>
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+    
+  
+
+
+
+
+<!-----------------------------------Footer------------------------------------------------------------------------------------------->
+
+</div>
+<div class="footer">
+    <div class="footerup">
+      <p>Subscribe to our Job seeking Mailing List</p>
+    
+    <div>
+      <input type="text"  placeholder="Enter Your Email Address" >
+      <i class="fa fa-envelope"></i>
+    </div>
+    </div>

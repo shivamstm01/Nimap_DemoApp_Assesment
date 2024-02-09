@@ -1,0 +1,55 @@
+<div class="Head">
+
+  <nav class="navbar">
+      <div class="logo">
+        <a routerLink="/">Profile</a>
+      </div>
+      <ul class="nav-links">
+        <li><a >X</a></li>
+       
+      </ul>
+    </nav>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------->
+
+<h3 class="headname">Profile</h3>
+<div class="Profile" *ngFor="let item of UserLetestData" >
+
+  
+
+  <div >
+    <div class="ProfileImage " >
+      <img [src]="item.image">
+
+    <div class="EditButton">  <button class="EditPhoto" routerLink="/edit/{{item.id}}" (click)="ImageClick()">Edit Photo</button>
+            <button class="EditProfile" routerLink="/edit/{{item.id}}" (click)="ProfileClick()">Edit Profile</button>
+    </div>
+         
+    </div>
+  </div>
+
+  <div class="ProfileDetails" >
+    I'm {{item.fname}} {{item.lname}} and Im above {{item.age}} years<br> and you can send your emails to 
+    <br><span >{{item.email}}</span>. I live in the state of<br> {{item.state}}. I like to play
+         {{item.interest}}.<br> And please send me newsletters. Please reach <br>out to me on my phone number {{item.number}}
+
+         <div><button class="AgreeButton" routerLink="/home">I Agree</button></div>
+  </div>
+
+ 
+
+</div>
+
+</div>
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+<div class="footer">
+  <div class="footerup">
+    <p>Subscribe to our Job seeking Mailing List</p>
+  
+  <div>
+    <input type="text"  placeholder="Enter Your Email Address" >
+    <i class="fa fa-envelope"></i>
+  </div>
+  </div>
+
