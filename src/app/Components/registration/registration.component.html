@@ -65,7 +65,7 @@
           <div>
             <span style="color: red;" *ngIf="number && number.invalid && number.touched" id="">
               <ng-container *ngIf="number.hasError('required')">this field are req(*)</ng-container>
-              <ng-container *ngIf="number.hasError('pattern')">please enter valid input</ng-container>
+              <ng-container *ngIf="number.hasError('pattern') || number.hasError('maxlength')">please enter valid input</ng-container>
             </span>
           </div>
         </div>

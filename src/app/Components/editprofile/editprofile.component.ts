@@ -46,6 +46,7 @@ CityList=[{
 }
 ];
 
+imgsrc:any
 
   constructor(private http:DataService,private routerurl:Router,private router:ActivatedRoute) { 
     
@@ -123,8 +124,13 @@ CityList=[{
   this.http.getDataById(this.router.snapshot.params.id).subscribe((result)=>{
 
     console.warn("result:",result);
-    const imgurl=result.image;
-    console.log(imgurl);
+
+    var imgurl=result.image
+
+    this.imgsrc=imgurl
+    console.log(this.imgsrc);
+    
+    
     
     
 
@@ -150,6 +156,7 @@ CityList=[{
     });
 
 
+  
     
     
 
