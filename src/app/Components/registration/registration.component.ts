@@ -9,8 +9,12 @@ import { DataService } from 'src/app/Services/data.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  interests:any[]=['Cricket','Football','Hockey','Kabbadi','Chess']
+  interests:any=[ 'Cricket','Football','Hockey'];
+  selectedInterests: string[] = [];
   selectedImage:any;
+  items = [];
+
+
 
 
   StateList=[{
@@ -44,9 +48,9 @@ public condition:boolean;
   RegistrationForm=new FormGroup({
     image:new FormControl('',[Validators.required]),
     fname:new FormControl('',[Validators.required,Validators.maxLength(20),Validators.pattern('[a-zA-Z]+$')]),
-    lname:new FormControl('',[Validators.required]),
-    email:new FormControl('',[Validators.required]),
-    number:new FormControl('',[Validators.required]),
+    lname:new FormControl('',[Validators.required,Validators.maxLength(20),Validators.pattern('[a-zA-Z]+$')]),
+    email:new FormControl('',[Validators.required,Validators.email,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    number:new FormControl('',[Validators.required,Validators.maxLength(12),Validators.minLength(10),Validators.pattern('^[0-9]*$')]),
     state:new FormControl('',[Validators.required]),
     city:new FormControl('',[Validators.required]),
     interest:new FormControl('',[Validators.required]),
@@ -156,18 +160,28 @@ public condition:boolean;
 
 
 
-  removeInterest(index:number){
-   if(index >=0 && index < this.interests.length){
-    const removedInterest = this.interests.splice(index,1)[0];
-    this.RegistrationForm.patchValue({interest : [removedInterest]
-    })
-   }
+ 
 
+
+
+removeInterest(index: number) {
+  if (index >= 0 && index < this.interests.length) {
+    const removedInterest = this.interests.splice(index, 1)[0];
+    if (!this.selectedInterests.includes(removedInterest)) {
+      this.selectedInterests.push(removedInterest);
     }
+    this.RegistrationForm.patchValue({ interest: this.selectedInterests });
+    
+  }
+}
 
 
+  public onSelect(item) {
+    console.log('tag selected: value is ' + item);
 
+  
    
+}
 
   
       onFileSelected(event: any): void {
@@ -182,6 +196,7 @@ public condition:boolean;
                 const reader = new FileReader();
                 reader.onload = (e:any) => {
                   this.selectedImage = e.target.result;
+                  this.RegistrationForm.controls['image'].patchValue(this.selectedImage)
                 };
                 reader.readAsDataURL(file);
               } else {

@@ -1,5 +1,5 @@
 .Head{
-    height: 800px;
+    height: 900px;
     width: 900px;
     text-align:center;
     background-color: white;
@@ -106,6 +106,17 @@ display: block;                 /* added */
         width: 250px;
         margin-left: 10px;
 
+    }
+    .nameError{
+        display: flex;
+
+        #fnerror{
+            margin-left: 50px;
+        }
+
+        #lnerror{
+            margin-left: 140px;
+        }
     }
     .email{
         height: 38px;

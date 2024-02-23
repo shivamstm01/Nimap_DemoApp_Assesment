@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditprofileComponent } from './Components/editprofile/editprofile.component';
+import { AngularTagInputModule } from 'angular-tag-input';
+
+
 
 
 
@@ -22,7 +25,7 @@ import { EditprofileComponent } from './Components/editprofile/editprofile.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,ReactiveFormsModule,FormsModule
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule,FormsModule,AngularTagInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private route:Router) { }
 
   Registerbutton(){
-   alert('Register Button');
+   
    this.route.navigateByUrl('/registration')
     
   }

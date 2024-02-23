@@ -12,7 +12,8 @@ import { DataService } from 'src/app/Services/data.service';
 export class EditprofileComponent implements OnInit {
 
 
-  interests:any[]=['Cricket','Football','Hockey','Kabbadi','Chess']
+  interests:any[]=['Cricket','Football','Hockey','Kabbadi','Chess'];
+  selectedInterests:string[]=[];
   selectedImage:File|null=null;
   selectedImagePreview: string | ArrayBuffer | null = null;
   public showEditProfile:boolean;
@@ -121,10 +122,14 @@ CityList=[{
     
   this.http.getDataById(this.router.snapshot.params.id).subscribe((result)=>{
 
-    console.log("result:",result);
+    console.warn("result:",result);
+    const imgurl=result.image;
+    console.log(imgurl);
+    
     
 
       this.EditRegistrationForm=new FormGroup({
+        image:new FormControl(result['image']),
         fname:new FormControl(result['fname']),
         lname:new FormControl(result['lname']),
         email:new FormControl(result['email']),
@@ -144,6 +149,8 @@ CityList=[{
       });
     });
 
+
+    
     
 
 // this.http.getDataById(this.router.snapshot.params.id).subscribe((result)=>{
@@ -227,36 +234,52 @@ CityList=[{
 
 
 
-  removeInterest(index:number){
-   if(index >=0 && index < this.interests.length){
-    const removedInterest = this.interests.splice(index,1)[0];
-    this.EditRegistrationForm.patchValue({interest : [removedInterest]
-    })
-   }
-    }
+  // removeInterest(index:number){
+  //  if(index >=0 && index < this.interests.length){
+  //   const removedInterest = this.interests.splice(index,1)[0];
+  //   this.EditRegistrationForm.patchValue({interest : [removedInterest]
+  //   })
+  //  }
+  //   }
+
+    // removeInterest(index: number) {
+    //   if (index >= 0 && index < this.interests.length) {
+    //     const removedInterest = this.interests.splice(index, 1)[0];
+    //     if (!this.selectedInterests.includes(removedInterest)) {
+    //       this.selectedInterests.push(removedInterest);
+    //     }
+    //     this.EditRegistrationForm.patchValue({ interest: this.selectedInterests });
+    //   }
+    // }
+
+    public onSelect(item) {
+      console.log('tag selected: value is ' + item);
+  }
 
 
 
    
 
   
+      
       onFileSelected(event: any): void {
         const file: File | null = event.target.files && event.target.files[0];
         if (file) {
-          // Checking file type
+          // Checking image type
           if (['image/jpeg', 'image/png','image/svg','image/jpeg'].includes(file.type)) {
-            // Checking image dimensions
+            // Check image size
             const img = new Image();
             img.onload = () => {
               if (img.width === 310 && img.height === 325) {
                 const reader = new FileReader();
                 reader.onload = (e:any) => {
                   this.selectedImage = e.target.result;
+                  this.EditRegistrationForm.controls['image'].patchValue(this.selectedImage)
                 };
                 reader.readAsDataURL(file);
               } else {
                 console.error('Image dimensions must be 310x325 pixels.');
-                alert('Image dimensions must be 310x320 pixels.')
+                alert('Image dimensions must be 310x325 pixels.')
                 this.image.reset()
               }
             };
@@ -269,6 +292,11 @@ CityList=[{
           }
         }
       }
+  
+      
+     
+    
+     
 
   
   

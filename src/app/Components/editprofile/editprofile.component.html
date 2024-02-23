@@ -76,8 +76,14 @@
 
 
         <div >
-          <input type="text" class="interest" placeholder="Enter Interest" formControlName="interest">
-          <div> <button type="button" (click)="removeInterest(index)" *ngFor="let interest of interests; let index = index" class="tagsOption">{{ interest }} <span id="removetag"> X </span></button></div>
+
+          <angular-tag-input  
+          [(ngModel)]="interests"
+          
+          class="interest" formControlName="interest" placeholder="Enter Interest +" (onSelect)="onSelect($event)"
+          ></angular-tag-input>
+          <!-- <input type="text" class="interest" placeholder="Enter Interest" formControlName="interest">
+          <div> <button type="button" (click)="removeInterest(index)" *ngFor="let interest of interests; let index = index" class="tagsOption">{{ interest }} <span id="removetag"> X </span></button></div> -->
       </div>
 
       <div class="tagside" >
@@ -115,7 +121,7 @@
     </nav>
  
       <div clsss="EditImageHead">
-        <form  [formGroup]="EditRegistrationForm" (ngSubmit)="UpdateData()()">
+        <form  [formGroup]="EditRegistrationForm" (ngSubmit)="UpdateData()">
   
          <div class="ShowImage"> <img *ngIf="selectedImage" [src]="selectedImage" alt="selected Image"></div>
              <div  class="inputImage"> <input type="file" class="ImageInput" placeholder="Upload Image"  formControlName="image" (change)="onFileSelected($event)"></div>
